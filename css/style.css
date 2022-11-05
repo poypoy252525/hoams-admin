@@ -10,6 +10,7 @@
     --hover-light: rgba(0, 0, 0, 0.1);
     --round-border: 50px;
     --body-color: rgba(255, 255, 255, 0.5);
+    --body-bg: #f2f6fc;
 }
 
 *,
@@ -27,6 +28,11 @@
     box-shadow: 0 0 30px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /* typography */
 
@@ -38,6 +44,8 @@ body {
     font-family: Inter, Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
+    background-color: var(--body-bg);
+    font-weight: 300;
 }
 
 a {
@@ -53,6 +61,13 @@ h1, h2, h3 {
     margin: 0;
 }
 
+.heading {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
 /* inputs */
 
 .input {
@@ -62,7 +77,7 @@ h1, h2, h3 {
     outline: 0;
     font-size: 1.4rem;
     transition: all 0.3s;
-    min-height: 42px;
+    min-height: 4.2rem;
 }
 
 .input-stretch {
@@ -87,7 +102,7 @@ h1, h2, h3 {
 
 .input-group {
     display: flex;
-    margin: 0 0 3rem;
+    /* margin: 0 0 3rem; */
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -102,11 +117,27 @@ h1, h2, h3 {
     color: var(--secondary-color);
 }
 
+.input-icon {
+    position: absolute;
+    right: 20px;
+    font-size: 1.4rem;
+    color: var(--heading-color);
+    opacity: 0.2;
+    transition: opacity 0.3s;
+}
+
+.input-group:hover .input-icon {
+    opacity: 0.4;
+}
+
+.input-group .input:focus ~ .input-icon {
+    opacity: 1;
+}
+
 .password-toggler {
     position: absolute;
     right: 20px;
     font-size: 1.4rem;
-    cursor: pointer;
     color: var(--heading-color);
     opacity: 0.2;
     transition: opacity 0.3s;
@@ -126,6 +157,23 @@ h1, h2, h3 {
 
 .fa-eye-slash {
     right: 19px;
+}
+
+.input-search {
+    padding-right: 4.5rem;
+}
+
+.input::placeholder {
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.input:hover::placeholder {
+    opacity: 0.7;
+}
+
+.input:focus::placeholder {
+    opacity: 1;
 }
 
 /* buttons */
@@ -356,6 +404,7 @@ h1, h2, h3 {
 .navbar-brand {
     display: flex;
     align-items: center;
+    margin-right: 1rem;
 }
 
 .navbar-title {
@@ -382,13 +431,38 @@ h1, h2, h3 {
     align-items: center;
 }
 
+.navbar-mobile {
+    display: block;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-wide {
+    display: none;
+}
+
 @media screen and (min-width: 1024px) {
+    .navbar-brand {
+        min-width: 230px;
+    }
+
     .navbar-brand .sidenav-toggler {
         display: block;
     }
 
     .navbar-nav .sidenav-toggler {
         display: none;
+    }
+
+    .navbar-mobile {
+        display: none;
+    }
+
+    .navbar-wide {
+        display: block;
     }
 }
 
@@ -446,10 +520,49 @@ h1, h2, h3 {
     max-width: 1140px;
 }
 
+/* card */
+
+.card {
+    display: block;
+    overflow: hidden;
+    background-color: var(--body-bg);
+    border-radius: 20px;
+    margin: 0 auto 2.4rem;
+    width: 93%;
+}
+
+.card .card-header,
+.card .card-content,
+.card .card-footer {
+    padding: 2.4rem 3rem 2rem;
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.card-heading {
+    color: var(--heading-color);
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.card-content {
+    background-color: #fff;
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.card-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
 /* page component */
 
 .page-header {
-    padding-bottom: 10rem;
+    padding-bottom: 9.8rem;
     background-color: var(--primary-color);
     text-align: start;
 }
@@ -478,7 +591,7 @@ h1, h2, h3 {
 
 .page-content {
     position: absolute;
-    top: -10rem;
+    top: -9.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -486,8 +599,41 @@ h1, h2, h3 {
     padding: 0 2.4rem;
 }
 
-.box {
-    width: 100%;
-    height: 300px;
-    background-color: #fff;
+/* grids */
+
+.grid {
+    display: grid;
+}
+
+@media screen and (min-width: 768px) {
+    .col-md-2 {
+        grid-template-columns: repeat(2, 50%);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .col-lg-3 {
+        grid-template-columns: repeat(3, 33.5%);
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .col-xl-3 {
+        grid-template-columns: repeat(3, 33.5%);
+    }
+}
+
+/* icons */
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.icon-light {
+    fill: var(--light-color);
+}
+
+.icon-light-gray {
+    fill: rgba(255, 255, 255, 0.5);
 }
