@@ -34,6 +34,10 @@
     align-items: center;
 }
 
+.p-0 {
+    padding: 0 !important;
+}
+
 /* typography */
 
 html {
@@ -124,6 +128,10 @@ h1, h2, h3 {
     color: var(--heading-color);
     opacity: 0.2;
     transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
 }
 
 .input-group:hover .input-icon {
@@ -523,18 +531,21 @@ h1, h2, h3 {
 /* card */
 
 .card {
-    display: block;
+    display: flex;
     overflow: hidden;
     background-color: var(--body-bg);
     border-radius: 20px;
     margin: 0 auto 2.4rem;
     width: 93%;
+    flex-wrap: wrap;
 }
 
 .card .card-header,
 .card .card-content,
 .card .card-footer {
     padding: 2.4rem 3rem 2rem;
+    z-index: 2;
+    width: 100%;
 }
 
 .card-header {
@@ -625,6 +636,13 @@ h1, h2, h3 {
 
 /* icons */
 
+.icon-container {
+    width: 3.5rem;
+    height: 3.5rem;
+    overflow: hidden;
+    border-radius: var(--round-border);
+}
+
 .icon {
     width: 3rem;
     height: 3rem;
@@ -637,3 +655,44 @@ h1, h2, h3 {
 .icon-light-gray {
     fill: rgba(255, 255, 255, 0.5);
 }
+
+/* dropdowns */
+
+.dropdown-content {
+    display: flex;
+    align-items: center;
+    width: 0;
+    height: 0;
+    z-index: 30;
+    background-color: #fff;
+    left: 0;
+    right: 0;
+    position: absolute;
+    transform: scale(0.8);
+    transition: transform 0.1s;
+}
+
+.dropdown.show .dropdown-content {
+    min-width: 90vw;
+    height: fit-content;
+    transform: scale(1);
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown.show .dropdown-content {
+        min-width: 24rem;
+    }
+
+    .dropdown.dropdown-right .dropdown-content {
+        left: auto;
+        right: 0;
+    }
+}
+
+/* search bar */

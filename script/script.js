@@ -47,3 +47,29 @@ minWidth1024px.addListener(function() {
     }
 });
 
+// dropdowns function
+
+const dropdown = document.querySelectorAll('.dropdown');
+
+for (let i = 0; i < dropdown.length; i++) {
+    const d = dropdown[i];
+    d.addEventListener('click', function(e) {
+        for (let j = 0; j < dropdown.length; j++) {
+            const e = dropdown[j];
+            if (i === j) continue;
+            e.classList.remove('show');
+        }
+        if (e.target.matches('.dropdown-toggler, .dropdown-toggler > *')) {
+            d.classList.toggle('show');
+        }
+    });
+}
+
+window.addEventListener('click', function(e) {
+    if (!e.target.matches('.dropdown-toggler, .dropdown-toggler > *, input, .dropdown-content')) {
+        console.log(e.target);
+        dropdown.forEach(item => {
+            item.classList.remove('show');
+        });
+    }
+});

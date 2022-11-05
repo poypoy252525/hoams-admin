@@ -23,20 +23,41 @@
                 </a>
             </div>
             <form action="index.html" class="center">
-                <div class="input-group">
-                    <input type="text" class="input input-stretch input-search navbar-wide" placeholder="Search...">
+                <div class="input-group navbar-wide">
+                    <input type="text" class="input input-stretch input-search" placeholder="Search...">
                     <i class="fa-solid fa-magnifying-glass input-icon"></i>
                 </div>
             </form>
         </div>
         <div class="navbar-nav">
             <button class="navbar-link btn btn-white btn-circle sidenav-toggler" data-toggle="sidebar">&#9776;</button>
-            <button class="navbar-link btn btn-white btn-circle">
-                <img class="image-fluid" src="images/profile.jpg" alt="profile">
-            </button>
-            <button class="navbar-link navbar-mobile btn btn-white btn-circle">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
+            <div class="dropdown dropdown-right">
+                <button class="navbar-link btn btn-white btn-circle dropdown-toggler">
+                    <img class="image-fluid" src="images/profile.jpg" alt="profile">
+                </button>
+                <div class="card p-0 shadow dropdown-content">
+                    <header class="card-header">
+                        <p>Header</p>
+                    </header>
+                    <main class="card-content">
+                        <p>content</p>
+                    </main>
+                    <footer class="card-footer">
+                        <p>footer</p>
+                    </footer>
+                </div>
+            </div>
+            <div class="dropdown dropdown-right">
+                <button class="navbar-link navbar-mobile btn btn-white btn-circle dropdown-toggler">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <form action="index.html" class="card shadow dropdown-content search-container">
+                    <div class="input-group input-stretch">
+                        <input type="text" class="input input-stretch input-search" placeholder="Search...">
+                        <i class="fa-solid fa-magnifying-glass input-icon"></i>
+                    </div>
+                </form>
+            </div>
         </div>
     </nav>
     <div class="sidenav-layer" id="sidebar">
