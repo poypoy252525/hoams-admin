@@ -239,7 +239,7 @@ h1, h2, h3 {
 .btn-white {
     background-color: #fff;
     color: var(--dark-color);
-    border: 1px solid #fff;
+    border: 0;
 }
 
 .btn-white:hover {
@@ -855,6 +855,11 @@ h1, h2, h3 {
 
 .nav-link.collapsible-header:hover .collapsible-heading {
     color: var(--primary-color);
+}
+
+.nav-link.active .collapsible-heading {
+    color: var(--primary-color);
+    font-weight: 800;
 }
 
 .collapsible-chevron {

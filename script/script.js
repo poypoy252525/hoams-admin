@@ -77,3 +77,23 @@ collapsible.forEach(item => {
         item.classList.toggle('show');
     });
 });
+
+// navlink
+
+const sidenav = document.querySelector('.sidenav-nav');
+sidenav.querySelectorAll('a.nav-link').forEach(navlink => {
+    navlink.addEventListener('click', function() {
+        sidenav.querySelectorAll('.sidenav-nav .active').forEach(removeActive => {
+            removeActive.classList.remove('active');
+        });
+        navlink.classList.add('active');
+        sidenav.querySelectorAll('.collapsible').forEach(item => {
+            const active = item.querySelector('.active');
+            if (active !== null) {
+                item.querySelector('.nav-link').classList.add('active');
+            }
+        });
+    });
+});
+
+
