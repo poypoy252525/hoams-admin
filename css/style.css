@@ -491,6 +491,10 @@ h1, h2, h3 {
     .navbar-wide {
         display: block;
     }
+
+    .navbar-wide.input-group {
+        min-width: 350px;
+    }
 }
 
 /* sidenav */
