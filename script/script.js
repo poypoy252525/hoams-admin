@@ -54,7 +54,8 @@ const dropdown = document.querySelectorAll('.dropdown');
 dropdown.forEach(item => {
     item.querySelector('.dropdown-toggler').addEventListener('click', function() {
         dropdown.forEach(d => {
-            d.classList.remove('show');
+            if (item !== d)
+                d.classList.remove('show');
         });
         item.classList.toggle('show');
     });
