@@ -537,7 +537,7 @@ h1, h2, h3 {
     display: flex;
     align-content: center;
     flex-wrap: wrap;
-    padding-left: 2.4rem;
+    padding-left: 1.6rem;
 }
 
 .sidenav-heading {
@@ -549,11 +549,43 @@ h1, h2, h3 {
 
 .sidenav-user {
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    width: 100%;
 }
 
 .sidenav-footer-label {
+    font-size: 1.2rem;
+}
+
+.sidenav .nav-link {
     font-size: 1.4rem;
+    padding: 1.2rem 1.6rem;
+    color: #000;
+    font-weight: 400;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navlink-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 1.2rem;
+    fill: rgba(0, 0, 0, 0.25);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.nav-link.active .navlink-icon {
+    fill: var(--primary-color);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
 }
 
 @media screen and (min-width: 1024px) {
@@ -811,14 +843,18 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap;
     cursor: pointer;
-    padding: 1.2rem 1.6rem;
 }
 
 .collapsible-heading {
     font-weight: 400;
     font-size: 1.4rem;
     color: #000;
+}
+
+.nav-link.collapsible-header:hover .collapsible-heading {
+    color: var(--primary-color);
 }
 
 .collapsible-chevron {
@@ -840,6 +876,13 @@ h1, h2, h3 {
 .collapsible.show > .collapsible-content {
     max-height: 100vh;
 
+}
+
+.collapsible-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 1.6rem;
+    fill: rgba(0, 0, 0, 0.25);
 }
 
 .collapsible.show > .collapsible-header .collapsible-chevron {
