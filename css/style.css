@@ -22,6 +22,19 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: var(--round-border);
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
 /* properties */
 
 .shadow {
@@ -515,11 +528,16 @@ h1, h2, h3 {
     background-color: #fff;
     height: calc(100vh - 5.8rem - 8rem);
     overflow-y: auto;
+    
 }
 
 .sidenav-footer {
     background-color: var(--body-bg);
     height: 8rem;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    padding-left: 2.4rem;
 }
 
 .sidenav-heading {
@@ -527,6 +545,15 @@ h1, h2, h3 {
     font-size: 1.2rem;
     padding: 3rem 1.6rem 1.2rem;
     font-weight: 800;
+}
+
+.sidenav-user {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.sidenav-footer-label {
+    font-size: 1.4rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -807,7 +834,7 @@ h1, h2, h3 {
     max-height: 0;
     padding-left: 1rem;
     overflow: hidden;
-    transition: max-height 0.25s;
+    transition: max-height 0.3s;
 }
 
 .collapsible.show > .collapsible-content {
