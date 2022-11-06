@@ -867,6 +867,7 @@ h1, h2, h3 {
     width: 1.4rem;
     height: 1.4rem;
     transition: transform 0.25s;
+    fill: rgba(0, 0, 0, 0.5);
 }
 
 .collapsible-content {
