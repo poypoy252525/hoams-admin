@@ -308,12 +308,6 @@ h1, h2, h3 {
     margin: 10px;
 }
 
-@media screen and (min-width: 768px) {
-    .link {
-        font-size: 1.6rem;
-    }
-}
-
 /* lists */
 
 .list {
