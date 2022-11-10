@@ -929,3 +929,9 @@ h1, h2, h3 {
 .form-container {
     min-height: calc(100vh - var(--block-padding) * 2);
 }
+
+@media screen and (min-width: 768px) {
+    .card-login {
+        max-width: 420px;
+    }
+}
