@@ -62,7 +62,7 @@ dropdown.forEach(item => {
 });
 
 window.addEventListener('click', function(e) {
-    if (!e.target.matches('.dropdown-toggler, .dropdown-toggler > *, input, .dropdown-content')) {
+    if (!e.target.matches('.dropdown, .dropdown *')) {
         dropdown.forEach(item => {
             item.classList.remove('show');
         });

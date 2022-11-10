@@ -593,6 +593,7 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     cursor: pointer;
+    user-select: none;
 }
 
 .navlink-icon {
