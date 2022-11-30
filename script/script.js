@@ -83,18 +83,43 @@ collapsible.forEach(item => {
 
 const sidenav = document.querySelector('.sidenav-nav');
 sidenav.querySelectorAll('a.nav-link').forEach(navlink => {
-    navlink.addEventListener('click', function() {
-        sidenav.querySelectorAll('.sidenav-nav .active').forEach(removeActive => {
-            removeActive.classList.remove('active');
-        });
-        navlink.classList.add('active');
-        sidenav.querySelectorAll('.collapsible').forEach(item => {
-            const active = item.querySelector('.active');
-            if (active !== null) {
-                item.querySelector('.nav-link').classList.add('active');
-            }
-        });
+    sidenav.querySelectorAll('.collapsible').forEach(item => {
+        const active = item.querySelector('.active');
+        if (active !== null) {
+            item.classList.add('show');
+            item.querySelector('.nav-link').classList.add('active');
+        }
     });
 });
 
+// modal
+const modalToggler = document.querySelectorAll('.modal-toggler');
+modalToggler.forEach(item => {
+    item.addEventListener('click', function() {
+        let modal = document.getElementById(item.getAttribute('data-modal'));
+        modal.classList.toggle('show');
+    });
+});
+const modal = document.querySelectorAll('.modal');
+modal.forEach(item => {
+    let cancelBtn = item.querySelector('.modal-cancel');
+    cancelBtn.addEventListener('click', function() {
+        item.classList.remove('show');
+    });
+    item.addEventListener('click', function(e) {
+        if (e.target.matches('.modal')) {
+            item.classList.remove('show');
+        }
+    });
+});
 
+// load image
+
+let imgInp = document.getElementById('upload-profile');
+imgInp.addEventListener('change', function() {
+    const [file] = imgInp.files;
+    if (file) {
+        const pic = document.getElementById('profile-picture');
+        pic.src = URL.createObjectURL(file);
+    }
+});
